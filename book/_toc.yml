@@ -1,0 +1,12 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: welcome
+parts:
+  - caption: Introduction
+    chapters:
+    - url: https://fabienmaussion.info/scientific_programming/faq.html
+      title: Frequently Asked Questions
+    - file: references
+    - file: slides

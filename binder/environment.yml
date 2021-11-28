@@ -1,0 +1,7 @@
+name: inpro
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - scipy
+  - matplotlib
