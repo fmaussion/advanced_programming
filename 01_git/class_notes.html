@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Some notes we will take in class &#8212; Advanced Scientific Programming</title>
+    <title>Version control with git &#8212; Advanced Scientific Programming</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -141,7 +141,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Some notes we will take in class
+   Version control with git
   </a>
  </li>
 </ul>
@@ -228,6 +228,36 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-version-control">
+     Why version control?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-install-git">
+     How to install git?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gitlab-github">
+     GitLab, GitHub?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -235,19 +265,94 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Some notes we will take in class</h1>
+                <h1>Version control with git</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-version-control">
+     Why version control?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-install-git">
+     How to install git?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gitlab-github">
+     GitLab, GitHub?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="some-notes-we-will-take-in-class">
-<h1>Some notes we will take in class<a class="headerlink" href="#some-notes-we-will-take-in-class" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="version-control-with-git">
+<h1>Version control with git<a class="headerlink" href="#version-control-with-git" title="Permalink to this headline">¶</a></h1>
+<p><em>Copyright notice: all these notes have been taken collaboratively in class during the lecture. Everyone is an author.</em></p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Git</span></code> is a version control tool, which basically keeps track of changes. When a change is pushed, git removes/replaces/adds only the changed lines. Everyone has a full copy of the entire git tree, that is everything. The best way to learn git is to just do it. Just try, and you will learn as you go. The nice thing with git is that all the changes are saved, so if you screw up it is always possible and easy to go back…</p>
+<div class="section" id="why-version-control">
+<h3>Why version control?<a class="headerlink" href="#why-version-control" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>History</p>
+<ul>
+<li><p>The contributors (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">blame</span></code>)</p></li>
+<li><p>The actual code changes</p></li>
+<li><p>Go back to previous versions</p></li>
+</ul>
+</li>
+<li><p>Collaboration</p>
+<ul>
+<li><p>Helping with merge conflicts</p></li>
+<li><p>Simultaneous development</p></li>
+</ul>
+</li>
+<li><p>Develop and test new stuff (on <code class="docutils literal notranslate"><span class="pre">branches</span></code>) without breaking the production (on the <code class="docutils literal notranslate"><span class="pre">master</span></code>/<code class="docutils literal notranslate"><span class="pre">main</span></code>/<code class="docutils literal notranslate"><span class="pre">trunk</span></code> branch)</p></li>
+</ul>
+</div>
+<div class="section" id="how-to-install-git">
+<h3>How to install git?<a class="headerlink" href="#how-to-install-git" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">brew</span></code> or <code class="docutils literal notranslate"><span class="pre">apt</span></code> on Mac, Linux</p></li>
+<li><p><a class="reference external" href="https://gitforwindows.org">https://gitforwindows.org</a> with the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">bash</span></code> programme (my recommendation)</p></li>
+</ul>
+</div>
+<div class="section" id="gitlab-github">
+<h3>GitLab, GitHub?<a class="headerlink" href="#gitlab-github" title="Permalink to this headline">¶</a></h3>
+<p><em>Git</em> is the version control <em>software</em>. That’s what everyone uses and needs to install.</p>
+<p>GitLab and GitHub are online services built around Git. Nowadays, they provide much more than pure version control</p>
+<ul class="simple">
+<li><p>user management: e.g. user access</p></li>
+<li><p>developer / IT time</p></li>
+<li><p>issues: discussions about bugs, improvement ideas, …</p></li>
+<li><p>pull requests (= merge request on GitLab): add  a new contribution to the main branch and discuss why this contribution is important and correct</p></li>
+</ul>
+<p>GitHub has been bought by Windows a while ago.</p>
+<p>GitLab is an “open-core” company. <a class="reference external" href="http://gitlab.com">gitlab.com</a> is very much like GitHub. An “open-core” is entierly open source, but have paid programs on top (unlike GitHub which hides their own code).</p>
+<p><a class="reference external" href="http://git.uibk.ac.at">git.uibk.ac.at</a> is a <strong>local gitlab server</strong> and is only good for local university projects. With a local repository at UIBK you know exactly where the data is stored. You can move repositories around, so starting at UIBK and then move to <a class="reference external" href="http://gitlab.com">gitlab.com</a> is always an option, because you have a full copy of all the code and changes on your computer. However, moving the repository will not include all the online extra info, e.g. <strong>issues</strong> with discussions, history of <strong>pull requests</strong> with discussions, statistics, …</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
