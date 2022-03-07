@@ -11,3 +11,6 @@ parts:
       title: Frequently Asked Questions
     - file: references
     - file: slides
+  - caption: Version control with git
+    chapters:
+    - file: 01_git/class_notes
