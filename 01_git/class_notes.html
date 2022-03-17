@@ -43,12 +43,11 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -253,7 +252,32 @@
      GitLab, GitHub?
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples-of-utilization-of-gitlab-github">
+     Examples of utilization of GitLab/GitHub
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-so-nice-with-git">
+     Not so nice with git
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-so-nice-with-gitlab-uibk">
+     Not so nice with gitLab @UIBK
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-so-nice-with-github">
+     Not so nice with github
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-git">
+   Learning git
+  </a>
  </li>
 </ul>
 
@@ -295,7 +319,32 @@
      GitLab, GitHub?
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples-of-utilization-of-gitlab-github">
+     Examples of utilization of GitLab/GitHub
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-so-nice-with-git">
+     Not so nice with git
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-so-nice-with-gitlab-uibk">
+     Not so nice with gitLab @UIBK
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-so-nice-with-github">
+     Not so nice with github
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-git">
+   Learning git
+  </a>
  </li>
 </ul>
 
@@ -352,6 +401,75 @@
 <p>GitLab is an “open-core” company. <a class="reference external" href="http://gitlab.com">gitlab.com</a> is very much like GitHub. An “open-core” is entierly open source, but have paid programs on top (unlike GitHub which hides their own code).</p>
 <p><a class="reference external" href="http://git.uibk.ac.at">git.uibk.ac.at</a> is a <strong>local gitlab server</strong> and is only good for local university projects. With a local repository at UIBK you know exactly where the data is stored. You can move repositories around, so starting at UIBK and then move to <a class="reference external" href="http://gitlab.com">gitlab.com</a> is always an option, because you have a full copy of all the code and changes on your computer. However, moving the repository will not include all the online extra info, e.g. <strong>issues</strong> with discussions, history of <strong>pull requests</strong> with discussions, statistics, …</p>
 </div>
+<div class="section" id="examples-of-utilization-of-gitlab-github">
+<h3>Examples of utilization of GitLab/GitHub<a class="headerlink" href="#examples-of-utilization-of-gitlab-github" title="Permalink to this headline">¶</a></h3>
+<p><strong>Project management:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/GLIMS-RGI/rgi7_scripts/issues">https://github.com/GLIMS-RGI/rgi7_scripts/issues</a></p></li>
+</ul>
+<p><strong>Website:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/OGGM/oggm.github.io">https://github.com/OGGM/oggm.github.io</a> (static webpage generator inside (e.g. jekyll, pelikan)</p></li>
+<li><p><a class="reference external" href="https://github.com/OGGM/tutorials">https://github.com/OGGM/tutorials</a> (<code class="docutils literal notranslate"><span class="pre">jupyterbook</span></code> makes webpages from jupyter notebooks)</p></li>
+<li><p><a class="reference external" href="https://github.com/OGGM/oggm-edu">https://github.com/OGGM/oggm-edu</a> (made with <a class="reference external" href="https://readthedocs.org">https://readthedocs.org</a> : open-source project documentation)</p></li>
+<li><p><a class="reference external" href="https://git.uibk.ac.at/acinn/stations-metadata">https://git.uibk.ac.at/acinn/stations-metadata</a></p></li>
+</ul>
+<p>More on github pages:</p>
+<ul class="simple">
+<li><p>Github <em>builds</em> and <em>hosts</em> the <em>static</em> website, which does not need more computing resources</p></li>
+<li><p>GitHub Pages can be used to programm/maintain web pages with git</p></li>
+<li><p>static websites don’t require any background calculations on the server (only on your own browser), dynamic websites do</p></li>
+<li><p>github actions: every time a commit is added, github is doing something (e.g. build the website, test the code)</p></li>
+</ul>
+<p><strong>Publication:</strong></p>
+<ul class="simple">
+<li><p>Works only nicely with Latex or text based editors</p></li>
+<li><p>Overleaf / HackMD &lt;-&gt; GitHub sync</p></li>
+</ul>
+<p><strong>Code:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/OGGM/oggm">https://github.com/OGGM/oggm</a></p></li>
+<li><p>all of GitLab / GitHub</p></li>
+</ul>
+</div>
+<div class="section" id="not-so-nice-with-git">
+<h3>Not so nice with git<a class="headerlink" href="#not-so-nice-with-git" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Pictures, data, binary files:</p>
+<ul>
+<li><p>if you change a picture, netCDF file, <code class="docutils literal notranslate"><span class="pre">git</span></code> can not understand the actual differences between the versions</p></li>
+</ul>
+</li>
+<li><p>Branches and collaborative is quite a learning curve (worth it though)</p></li>
+<li><p>people working on the same script might result in conflicts which are sometimes complicated to solve (note that this is the very nature of code change conflicts - in fact git is actually trying to help us here)</p></li>
+<li><p>git GUIs are confusing (I recommend to learn with the command line first)</p></li>
+<li><p>sometimes issues with cloud data storage (e.g., pClouddrive) for commits</p></li>
+<li><p>First collaboration among people can become chaotic (learning curve)</p></li>
+<li><p>if you do something slightly different than your “normal” workflow, you might get “errors” or “warnings”, so you might feel “afraid” that you do something wrong when “forcing” something …</p></li>
+</ul>
+</div>
+<div class="section" id="not-so-nice-with-gitlab-uibk">
+<h3>Not so nice with gitLab &#64;UIBK<a class="headerlink" href="#not-so-nice-with-gitlab-uibk" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>slightly more complex if people outside of the university want to join</p></li>
+</ul>
+</div>
+<div class="section" id="not-so-nice-with-github">
+<h3>Not so nice with github<a class="headerlink" href="#not-so-nice-with-github" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Physical Location of data is not known, closed source company</p></li>
+<li><p>Gitlab in turn is “open core” company, which is nice</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="learning-git">
+<h2>Learning git<a class="headerlink" href="#learning-git" title="Permalink to this headline">¶</a></h2>
+<p>Some resources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></p></li>
+<li><p><a class="reference external" href="https://lab.github.com">https://lab.github.com</a></p></li>
+<li><p><a class="reference external" href="https://about.gitlab.com/learn">https://about.gitlab.com/learn</a></p></li>
+</ul>
 </div>
 </div>
 

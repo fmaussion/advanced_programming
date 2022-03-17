@@ -43,12 +43,11 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -335,11 +334,11 @@
 <p>German: <em>Lehrveranstaltungskonzept</em>. Please read it carefully at the beginning of the class, and return to it as often as necessary.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>It is the first time I’m giving this class. The syllabus is likely change in the course of the semester, but each change will be communicated in class.</p>
+<p>It is the first time I’m giving this class. The syllabus will likely change in the course of the semester, but each change will be communicated in class.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>The targeted audience for this lecture are <strong>students at the master level with previous experience in programming with Python</strong>. I’ll assume that the fundamentals learned in my other <a class="reference external" href="https://fabienmaussion.info/scientific_programming">scientific programming</a> class are well understood. You have a working python installation on your laptop and are able to install new packages and troubleshoot installation problems on your own (mostly).</p>
+<p>The targeted audience for this lecture is <strong>students at the master level with previous experience in programming with Python</strong>. I’ll assume that the fundamentals learned in my other <a class="reference external" href="https://fabienmaussion.info/scientific_programming">scientific programming</a> class are well understood. You have a working python installation on your laptop and are able to install new packages and troubleshoot installation problems on your own (mostly).</p>
 </div>
 <div class="section" id="learning-outcomes">
 <h2>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">¶</a></h2>
@@ -356,7 +355,7 @@
 </div>
 <div class="section" id="organisation-of-the-class">
 <h2>Organisation of the class<a class="headerlink" href="#organisation-of-the-class" title="Permalink to this headline">¶</a></h2>
-<p>I don’t know yet how the class will be organized, but we will find it out together!</p>
+<p>I don’t know yet how the class will be organized, but we will find out together!</p>
 </div>
 <div class="section" id="grading">
 <h2>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h2>
@@ -367,7 +366,7 @@
 <li><p><strong>an individual programming project at the end of the semester</strong> (80%)</p></li>
 </ol>
 <p>A positive evaluation of each of these elements is mandatory to pass the class!</p>
-<p>There will be <strong>bonus points</strong> for anyone helping to write these notes! Open a an issue or a pull-request <a class="reference external" href="https://github.com/fmaussion/advanced_programming">here</a>.</p>
+<p>There will be <strong>bonus points</strong> for anyone helping to write these notes! Open an issue or a pull-request <a class="reference external" href="https://github.com/fmaussion/advanced_programming">here</a>.</p>
 </div>
 <div class="section" id="weekly-lesson-plan">
 <h2>Weekly lesson plan<a class="headerlink" href="#weekly-lesson-plan" title="Permalink to this headline">¶</a></h2>

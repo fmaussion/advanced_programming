@@ -43,12 +43,11 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -294,7 +293,7 @@
 <div class="margin figure align-default">
 <img alt="_images/logo_acinn_small.jpg" src="_images/logo_acinn_small.jpg" />
 </div>
-<p>Lecture notes of the bachelor lecture <a class="reference external" href="https://lfuonline.uibk.ac.at/public/lfuonline_lv.details?sem_id_in=22S&amp;lvnr_id_in=707833">Advanced Scientific Programming</a>, taught as an optional advanced course for to students following a <a class="reference external" href="https://www.uibk.ac.at/acinn/studies/master-in-atmospheric-sciences.html.en">Master in Atmospheric and Cryospheric Sciences</a> curriculum at the University of Innsbruck.</p>
+<p>Lecture notes of the bachelor lecture <a class="reference external" href="https://lfuonline.uibk.ac.at/public/lfuonline_lv.details?sem_id_in=22S&amp;lvnr_id_in=707833">Advanced Scientific Programming</a>, taught as an optional advanced course for students following a <a class="reference external" href="https://www.uibk.ac.at/acinn/studies/master-in-atmospheric-sciences.html.en">Master in Atmospheric and Cryospheric Sciences</a> curriculum at the University of Innsbruck.</p>
 <p>This lecture is tailored for a 15 weeks-long class, but these notes might also be of interest to other (geo-)scientists wanting to learn more advanced scientific programming skills. <strong>Welcome to you all!</strong></p>
 <p><img alt="" src="_images/welcome_img.jpg" /></p>
 <div class="section" id="authors">
