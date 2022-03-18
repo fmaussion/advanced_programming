@@ -14,3 +14,4 @@ parts:
   - caption: Version control with git
     chapters:
     - file: 01_git/class_notes
+    - file: 01_git/assignments
