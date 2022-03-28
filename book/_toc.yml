@@ -15,3 +15,7 @@ parts:
     chapters:
     - file: 01_git/class_notes
     - file: 01_git/assignments
+  - caption: Performance
+    chapters:
+    - file: 02_performance/class_notes
+    - file: 02_performance/assignments
