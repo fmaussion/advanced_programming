@@ -277,8 +277,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#small-programming-riddle">
-     Small programming riddle
+    <a class="reference internal nav-link" href="#exercise-01-a-short-programming-riddle">
+     Exercise 01: a short programming riddle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-02-code-profiling">
+     Exercise 02: code profiling
     </a>
    </li>
   </ul>
@@ -309,8 +314,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#small-programming-riddle">
-     Small programming riddle
+    <a class="reference internal nav-link" href="#exercise-01-a-short-programming-riddle">
+     Exercise 01: a short programming riddle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-02-code-profiling">
+     Exercise 02: code profiling
     </a>
    </li>
   </ul>
@@ -329,9 +339,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="week-04">
 <h2>Week 04<a class="headerlink" href="#week-04" title="Permalink to this headline">¶</a></h2>
 <p><em>“Due date”: 04.04.2022</em></p>
-<div class="section" id="small-programming-riddle">
-<h3>Small programming riddle<a class="headerlink" href="#small-programming-riddle" title="Permalink to this headline">¶</a></h3>
-<p>Let’s read some output of the OGGM model:</p>
+<div class="section" id="exercise-01-a-short-programming-riddle">
+<h3>Exercise 01: a short programming riddle<a class="headerlink" href="#exercise-01-a-short-programming-riddle" title="Permalink to this headline">¶</a></h3>
+<p>Let’s read some output of the OGGM model (<a class="reference external" href="https://github.com/fmaussion/advanced_programming/raw/master/book/data/oggm_fl_ela.nc">download the data</a>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
@@ -371,7 +381,7 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../_images/assignments_8_0.png" src="../_images/assignments_8_0.png" />
 </div>
 </div>
-<p>These data represent a glacier simulation using the <a class="reference external" href="https://docs.oggm.org/en/stable/flowlines.html">flowline</a> representation. Each point on the flowline has a width, an area, and a thickness changing with time:</p>
+<p>These data represent a glacier simulation using the <a class="reference external" href="https://docs.oggm.org/en/stable/flowlines.html">flowline</a> representation. Each grid point on the flowline has a width, an area, and a thickness changing with time:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">bed_h</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
@@ -385,6 +395,21 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../_images/assignments_10_0.png" src="../_images/assignments_10_0.png" />
 </div>
 </div>
+<p><strong>Your task is to compute the yearly “accumulation area ratio” (AAR)</strong>, which is a number between 0 and 1 representing the fraction of the glacier area which is <em>above</em> the equilibrium line altitude (ELA). You have all the data you need above:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ds.ela_m</span></code> represents the equilibrium line altitude (ELA) each year (unit: m)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">surface_h</span></code> represents the surface elevation of the glacier grid points each year (unit: m). With this you can check which grid points are located above the ELA.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ds.area_m2</span></code> represents the area of each grid point each year (same dimensions as <code class="docutils literal notranslate"><span class="pre">surface_h</span></code>, unit: m2). With this you can compute the total area of the glacier each year (plotted above) and together with the ELA and <code class="docutils literal notranslate"><span class="pre">surface_h</span></code> you can compute the AAR.</p></li>
+</ul>
+<p>The “difficulty” of this programming exercise is that all variables change each year. An intuitive way to solve the problem would be to use a for loop and you may want to start with this if you want to.</p>
+<p>In fact, one can do it without for loop in 4 lines of code in xarray or numpy (the code in xarray is simpler than in pure numpy). If the task with xarray was too easy for you, you can try to code the same without xarray.</p>
+</div>
+<div class="section" id="exercise-02-code-profiling">
+<h3>Exercise 02: code profiling<a class="headerlink" href="#exercise-02-code-profiling" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/fmaussion/pydemic">Pydemic</a> is an agent-based model of a pandemic used to teach OOP to master students.</p>
+<p>The code is very slow, because it does not use vectors to represent data. Each agent in the model has a location and state stored in scalar variables. This is OK given the purpose of the tool (teaching OOP), but we can still do better.</p>
+<p>Run the <code class="docutils literal notranslate"><span class="pre">pydemic.py</span></code> module (no installation needed, a <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">pydemic.py</span></code> should suffice to create a plot) and spend some time studying its code (it should be relatively straightforward). The code is quite slow though (a single simulation takes about 23s on my laptop).</p>
+<p><strong>Your task is to profile pydemic and find at least one bottleneck in the code</strong>. For the profiling, use <a class="reference external" href="https://github.com/benfred/py-spy">py-spy</a> to run the module (remove the plot function from <code class="docutils literal notranslate"><span class="pre">__main__</span></code> first!!!). <strong>Once you have found the bottleneck, implement or design a strategy to address it.</strong></p>
 </div>
 </div>
 </div>
