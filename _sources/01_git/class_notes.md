@@ -65,6 +65,9 @@ More on github pages:
 - https://github.com/OGGM/oggm
 - all of GitLab / GitHub
 
+**DOI: git with zenodo**
+- [linking github with Zenodo for permanent citable code](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content)
+
 ### Not so nice with git
 
 - Pictures, data, binary files:
@@ -84,7 +87,6 @@ More on github pages:
 
 - Physical Location of data is not known, closed source company
 - Gitlab in turn is "open core" company, which is nice
-
 
 ## Learning git
 

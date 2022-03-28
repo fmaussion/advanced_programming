@@ -51,8 +51,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class notes" href="../02_performance/class_notes.html" />
-    <link rel="prev" title="Version control with git" href="class_notes.html" />
+    <link rel="prev" title="Class notes" href="class_notes.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -138,14 +137,14 @@ const thebe_selector_output = ".output, .cell_output"
   Version control with git
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="class_notes.html">
+  <a class="reference internal" href="../01_git/class_notes.html">
    Version control with git
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_git/assignments.html">
    Assignments
   </a>
  </li>
@@ -155,14 +154,14 @@ const thebe_selector_output = ".output, .cell_output"
   Performance
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../02_performance/class_notes.html">
+  <a class="reference internal" href="class_notes.html">
    Class notes
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../02_performance/assignments.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Assignments
   </a>
  </li>
@@ -207,9 +206,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/01_git/assignments.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/02_performance/assignments.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -227,10 +226,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/fmaussion/advanced_programming/issues/new?title=Issue%20on%20page%20%2F01_git/assignments.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/fmaussion/advanced_programming/issues/new?title=Issue%20on%20page%20%2F02_performance/assignments.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/fmaussion/advanced_programming/edit/master/book/01_git/assignments.md"><button
+        <a class="edit-button" href="https://github.com/fmaussion/advanced_programming/edit/master/book/02_performance/assignments.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -245,6 +244,23 @@ const thebe_selector_output = ".output, .cell_output"
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/fmaussion/advanced_programming/master?urlpath=lab/tree/book/02_performance/assignments.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -256,19 +272,16 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#git-exercise-1-a-typical-workflow-for-a-1-person-project">
-   git exercise 1: a typical workflow for a 1 person project
+  <a class="reference internal nav-link" href="#week-04">
+   Week 04
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#git-exercise-2-a-typical-workflow-for-a-team-project">
-   git exercise 2: a typical workflow for a team project
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-3-build-the-documentation-of-a-software-project">
-   Exercise 3: build the documentation of a software project
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#small-programming-riddle">
+     Small programming riddle
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -291,19 +304,16 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#git-exercise-1-a-typical-workflow-for-a-1-person-project">
-   git exercise 1: a typical workflow for a 1 person project
+  <a class="reference internal nav-link" href="#week-04">
+   Week 04
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#git-exercise-2-a-typical-workflow-for-a-team-project">
-   git exercise 2: a typical workflow for a team project
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-3-build-the-documentation-of-a-software-project">
-   Exercise 3: build the documentation of a software project
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#small-programming-riddle">
+     Small programming riddle
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -316,49 +326,66 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="assignments">
 <h1>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="git-exercise-1-a-typical-workflow-for-a-1-person-project">
-<h2>git exercise 1: a typical workflow for a 1 person project<a class="headerlink" href="#git-exercise-1-a-typical-workflow-for-a-1-person-project" title="Permalink to this headline">¶</a></h2>
-<p>“due date”: 21.03.2022</p>
-<ol>
-<li><p>Don’t forget to setup git as explained here: <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup</a></p></li>
-<li><p>Create an account on one of:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com">https://github.com</a></p></li>
-<li><p><a class="reference external" href="https://gitlab.com">https://gitlab.com</a></p></li>
-<li><p><a class="reference external" href="https://git.uibk.ac.at">https://git.uibk.ac.at</a></p></li>
-</ul>
-<p>Take your decision on the platform based on what you want the account for, and the topics we have discussed
-in class. If you are not sure, simply use <a class="reference external" href="http://git.uibk.ac.at">git.uibk.ac.at</a> (this is what we will use for exercise 2 anyways).</p>
-</li>
-<li><p>Create a new repository of your choice <em>online</em>. Name it what you want (test something)</p></li>
-<li><p>Clone it locally on your laptop</p></li>
-<li><p>Add one file or two, add some content to the files. Commit them.</p></li>
-<li><p>Changes the files a bit more, commit again.</p></li>
-<li><p>Now push the changes to your online repository.</p></li>
-<li><p>Online now, edit one of the files with the online editor. Commit the changes online.</p></li>
-<li><p>Pull the changes locally, so that the changes that happened online are now available locally.</p></li>
-</ol>
-<p>That’s it! You’ve already learned a bunch about git with only just this workflow!</p>
+<div class="section" id="week-04">
+<h2>Week 04<a class="headerlink" href="#week-04" title="Permalink to this headline">¶</a></h2>
+<p><em>“Due date”: 04.04.2022</em></p>
+<div class="section" id="small-programming-riddle">
+<h3>Small programming riddle<a class="headerlink" href="#small-programming-riddle" title="Permalink to this headline">¶</a></h3>
+<p>Let’s read some output of the OGGM model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="k">with</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;../data/oggm_fl_ela.nc&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="section" id="git-exercise-2-a-typical-workflow-for-a-team-project">
-<h2>git exercise 2: a typical workflow for a team project<a class="headerlink" href="#git-exercise-2-a-typical-workflow-for-a-team-project" title="Permalink to this headline">¶</a></h2>
-<p>“due date”: 28.03.2022</p>
-<p>We will learn how to do a “merge request” in class. Your tasks this week are to:</p>
-<ol class="simple">
-<li><p>set-up <code class="docutils literal notranslate"><span class="pre">git</span></code> to work without a password (I recommend SSH but find the documentation that works for you).</p></li>
-<li><p>open a second merge-request to <a class="reference external" href="https://git.uibk.ac.at/acinn/icu/AdvPro_SS22">https://git.uibk.ac.at/acinn/icu/AdvPro_SS22</a>, this time adding some information to your home page: a photo of your choosing (a pet, a mountain, your bike, whatever you like), link it into your bio and add a short description of it.</p></li>
-<li><p>I will review it during the week and you will have a little more to do ;-)</p></li>
-</ol>
 </div>
-<div class="section" id="exercise-3-build-the-documentation-of-a-software-project">
-<h2>Exercise 3: build the documentation of a software project<a class="headerlink" href="#exercise-3-build-the-documentation-of-a-software-project" title="Permalink to this headline">¶</a></h2>
-<p>“due date”: 28.03.2022</p>
-<p>This task is loosely git related, and it is meant to teach you to do something new and get ready for one of your “graded assignments”: contributing to an open-source project.</p>
-<p>Pick a project you like (xarray, metpy, something else) which has a <a class="reference external" href="https://www.sphinx-doc.org">sphinx</a> based documentation (that’s almost all of them) and <strong>follow the project’s instructions to build the documentation locally</strong>. xarray’s documentation takes a bit to build but the process is well documented. Get acquainted with sphinx by playing around a bit.</p>
-<p><strong>OR</strong></p>
-<p>Build the <a class="reference external" href="https://edu.oggm.org">oggm-edu</a> website locally (also built with sphinx but a bit simpler than xarray’s) and let me know if I need to work on <a class="reference external" href="https://github.com/OGGM/oggm-edu/blob/master/BUILD_HOWTO.rst">documenting</a> this better.</p>
-<p><strong>OR</strong></p>
-<p>(advanced) Build a documentation of your own project from scratch using sphinx. I’ll help.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">thickness_m</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">2004</span><span class="p">,</span> <span class="mi">2019</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/assignments_6_0.png" src="../_images/assignments_6_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">area_m2</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;dis_along_flowline&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/assignments_7_0.png" src="../_images/assignments_7_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">ela_m</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/assignments_8_0.png" src="../_images/assignments_8_0.png" />
+</div>
+</div>
+<p>These data represent a glacier simulation using the <a class="reference external" href="https://docs.oggm.org/en/stable/flowlines.html">flowline</a> representation. Each point on the flowline has a width, an area, and a thickness changing with time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">bed_h</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+
+<span class="n">surface_h</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">bed_h</span> <span class="o">+</span> <span class="n">ds</span><span class="o">.</span><span class="n">thickness_m</span>
+<span class="n">surface_h</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">2004</span><span class="p">,</span> <span class="mi">2019</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/assignments_10_0.png" src="../_images/assignments_10_0.png" />
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -375,7 +402,7 @@ in class. If you are not sure, simply use <a class="reference external" href="ht
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./01_git"
+            path: "./02_performance"
         },
         predefinedOutput: true
     }
@@ -391,15 +418,8 @@ in class. If you are not sure, simply use <a class="reference external" href="ht
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Version control with git</p>
+            <p class="prev-next-title">Class notes</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="../02_performance/class_notes.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Class notes</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
