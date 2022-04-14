@@ -1,3 +1,10 @@
+""" Simple glacier model.
+
+License: BSD3
+
+Copright: OGGM developpers, http://oggm.org
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 
