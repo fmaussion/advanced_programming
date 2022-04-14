@@ -288,6 +288,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-05-numerical-modelling">
+   Week 05: Numerical modelling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#micro-optimizations">
+     “Micro-“optimizations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiprocessing">
+     Multiprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -321,6 +338,23 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercise-02-code-profiling">
      Exercise 02: code profiling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-05-numerical-modelling">
+   Week 05: Numerical modelling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#micro-optimizations">
+     “Micro-“optimizations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiprocessing">
+     Multiprocessing
     </a>
    </li>
   </ul>
@@ -410,6 +444,121 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The code is very slow, because it does not use vectors to represent data. Each agent in the model has a location and state stored in scalar variables. This is OK given the purpose of the tool (teaching OOP), but we can still do better.</p>
 <p>Run the <code class="docutils literal notranslate"><span class="pre">pydemic.py</span></code> module (no installation needed, a <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">pydemic.py</span></code> should suffice to create a plot) and spend some time studying its code (it should be relatively straightforward). The code is quite slow though (a single simulation takes about 23s on my laptop).</p>
 <p><strong>Your task is to profile pydemic and find at least one bottleneck in the code</strong>. For the profiling, use <a class="reference external" href="https://github.com/benfred/py-spy">py-spy</a> to run the module (remove the plot function from <code class="docutils literal notranslate"><span class="pre">__main__</span></code> first!!!). <strong>Once you have found the bottleneck, implement or design a strategy to address it.</strong></p>
+</div>
+</div>
+<div class="section" id="week-05-numerical-modelling">
+<h2>Week 05: Numerical modelling<a class="headerlink" href="#week-05-numerical-modelling" title="Permalink to this headline">¶</a></h2>
+<p><em>“Due date”: 25.04.2022</em></p>
+<p>The <a class="reference external" href="https://raw.githubusercontent.com/fmaussion/advanced_programming/master/book/02_performance/glacier_model.py">glacier_model.py</a> script (<code class="docutils literal notranslate"><span class="pre">shift</span></code> + <code class="docutils literal notranslate"><span class="pre">right</span> <span class="pre">click</span></code> to download) contains numerical code to realize glacier flowline experiments. The code is similar to what <a class="reference external" href="https://docs.oggm.org/en/stable/ice-dynamics.html">OGGM</a> is doing, but with some simplifications:</p>
+<ul class="simple">
+<li><p>the glacier has a rectangular bed shape and is of constant width</p></li>
+<li><p>the mass balance is a simple linear function of elevation</p></li>
+</ul>
+<p>The model solves the continuity equation as a numerical diffusion problem (see the seminal paper by <a class="reference external" href="https://www.cambridge.org/core/journals/annals-of-glaciology/article/flowline-model-for-nigardsbreen-norway-projection-of-future-glacier-length-based-on-dynamic-calibration-with-the-historic-record/238EA486EB8CCBC77A0C292047FC03CD">Oerlemans 1997</a> if you are interested about the origins of such models: our code is the same but without the trapezoid shape and without basal sliding). There are a few things to say about the time stepping scheme (which is fixed to a constant value which is a bad idea), but numerics are not what we are trying to improve here.</p>
+<p>Let’s consider the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glacier_model</span> <span class="kn">import</span> <span class="n">glacier_evolution</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">xc</span><span class="p">,</span> <span class="n">bed_h</span><span class="p">,</span> <span class="n">surface_h</span><span class="p">,</span> <span class="n">years</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="n">glacier_evolution</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">volume</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Volume evolution&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;km$^</span><span class="si">{3}</span><span class="s1">$&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/assignments_18_0.png" src="../_images/assignments_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xc</span><span class="p">,</span> <span class="n">bed_h</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xc</span><span class="p">,</span> <span class="n">surface_h</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Glacier geometry at the end of the simulation&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Elevation&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/assignments_19_0.png" src="../_images/assignments_19_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> glacier_evolution()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.38 s ± 56.6 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s make this code faster in two steps (which is also what you should do in real life)</p>
+<div class="section" id="micro-optimizations">
+<h3>“Micro-“optimizations<a class="headerlink" href="#micro-optimizations" title="Permalink to this headline">¶</a></h3>
+<p>Your task: <strong>profile</strong> the code and evaluate the bottlenecks, and <strong>optimize</strong> what can be optimized.</p>
+<p>With a few very simple changes in the code (all related to the examples discussed in the <a class="reference internal" href="class_notes.html"><span class="doc std std-doc">lecture notes</span></a>), I was able to make the code faster by a factor of two:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glacier_model_optim</span> <span class="kn">import</span> <span class="n">glacier_evolution_optim</span>
+<span class="o">%</span><span class="k">timeit</span> glacier_evolution_optim()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.89 s ± 16.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="multiprocessing">
+<h3>Multiprocessing<a class="headerlink" href="#multiprocessing" title="Permalink to this headline">¶</a></h3>
+<p>Let’s consider the following sensitivity experiments (taking way too long):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volumes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">grads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">grad</span> <span class="ow">in</span> <span class="n">grads</span><span class="p">:</span>
+    <span class="n">xc</span><span class="p">,</span> <span class="n">bed_h</span><span class="p">,</span> <span class="n">surface_h</span><span class="p">,</span> <span class="n">years</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="n">glacier_evolution_optim</span><span class="p">(</span><span class="n">mb_grad</span><span class="o">=</span><span class="n">grad</span><span class="p">)</span>
+    <span class="n">volumes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span>
+<span class="n">volumes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">volumes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grads</span><span class="p">,</span> <span class="n">volumes</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e-9</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/assignments_28_0.png" src="../_images/assignments_28_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">volumes</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="mf">1e-9</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/assignments_29_0.png" src="../_images/assignments_29_0.png" />
+</div>
+</div>
+<p><strong>What if we want to make 100 experiments instead of 3?</strong></p>
+<p>The problem is what we call <a class="reference external" href="https://en.wikipedia.org/wiki/Embarrassingly_parallel">embarrassingly parallel</a>: each task is fully independent of the others.</p>
+<p><strong>Use python’s multiprocessing <code class="docutils literal notranslate"><span class="pre">Pool.map()</span></code> method to realize the same experiments on the MB gradient but with input <code class="docutils literal notranslate"><span class="pre">np.linspace(1,</span> <span class="pre">5,</span> <span class="pre">20)</span></code> instead.</strong></p>
+<p>The output plot should look more something like:</p>
+<p><img alt="img" src="../_images/example_plot.png" /></p>
+<p>Repeat with another sensitivity experiment of your choice!</p>
 </div>
 </div>
 </div>

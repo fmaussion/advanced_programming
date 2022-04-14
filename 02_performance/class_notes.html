@@ -290,8 +290,8 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#some-optimisation-stories-from-fabien">
-   Some optimisation stories from Fabien
+  <a class="reference internal nav-link" href="#some-optimisation-stories-from-the-class">
+   Some optimisation stories from the class
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -300,13 +300,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#micro-optimisation-examples">
-   Micro optimisation examples
+  <a class="reference internal nav-link" href="#optimisation-examples">
+   Optimisation examples
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vectorization-is-awesome">
+     Vectorization is awesome
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#back-to-basics-xarray-numpy-own-functions">
-     Back to basics xarray -&gt; numpy -&gt; own functions
+     Back to basics: xarray -&gt; numpy -&gt; own functions
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -315,8 +320,8 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#numpy-is-also-slow-in-certain-situations">
-       numpy is also slow in certain situations
+      <a class="reference internal nav-link" href="#numpy-s-general-functions-are-sometimes-slower-than-the-direct-arithmetic-solution">
+       numpy’s general functions are sometimes slower than the direct arithmetic solution
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -325,8 +330,8 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#vectorization-is-awesome">
-       Vectorization is awesome
+      <a class="reference internal nav-link" href="#but-numpy-is-already-super-clever">
+       But numpy is already super clever
       </a>
      </li>
     </ul>
@@ -371,8 +376,8 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#some-optimisation-stories-from-fabien">
-   Some optimisation stories from Fabien
+  <a class="reference internal nav-link" href="#some-optimisation-stories-from-the-class">
+   Some optimisation stories from the class
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -381,13 +386,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#micro-optimisation-examples">
-   Micro optimisation examples
+  <a class="reference internal nav-link" href="#optimisation-examples">
+   Optimisation examples
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vectorization-is-awesome">
+     Vectorization is awesome
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#back-to-basics-xarray-numpy-own-functions">
-     Back to basics xarray -&gt; numpy -&gt; own functions
+     Back to basics: xarray -&gt; numpy -&gt; own functions
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -396,8 +406,8 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#numpy-is-also-slow-in-certain-situations">
-       numpy is also slow in certain situations
+      <a class="reference internal nav-link" href="#numpy-s-general-functions-are-sometimes-slower-than-the-direct-arithmetic-solution">
+       numpy’s general functions are sometimes slower than the direct arithmetic solution
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -406,8 +416,8 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#vectorization-is-awesome">
-       Vectorization is awesome
+      <a class="reference internal nav-link" href="#but-numpy-is-already-super-clever">
+       But numpy is already super clever
       </a>
      </li>
     </ul>
@@ -447,11 +457,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Profiling helps to focus on what really matters. You might find the results of profiling very surprising!</p>
 </div>
 </div>
-<div class="section" id="some-optimisation-stories-from-fabien">
-<h2>Some optimisation stories from Fabien<a class="headerlink" href="#some-optimisation-stories-from-fabien" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="some-optimisation-stories-from-the-class">
+<h2>Some optimisation stories from the class<a class="headerlink" href="#some-optimisation-stories-from-the-class" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>vectorization instead of for-loops</p></li>
-<li><p>from fortran to c (vice versa): change the order of accessing rows and columns</p></li>
+<li><p>from fortran to c (or vice versa): change the order of accessing rows and columns</p></li>
 <li><p>conversion between xarray/numpy arrays etc. is expensive - avoid it if you need performance</p></li>
 <li><p>writing functions instead of hard-coding every single step multiple times</p></li>
 <li><p>opening the same file every time in a for-loop instead of doing it once before starting the for-loop</p></li>
@@ -462,13 +472,22 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Profiling code<a class="headerlink" href="#profiling-code" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>default: <a class="reference external" href="https://docs.python.org/3/library/profile.html">https://docs.python.org/3/library/profile.html</a></p></li>
-<li><p>better: <a class="reference external" href="https://github.com/benfred/py-spy">https://github.com/benfred/py-spy</a></p></li>
+<li><p>with graphics: <a class="reference external" href="https://github.com/benfred/py-spy">https://github.com/benfred/py-spy</a></p></li>
 </ul>
 </div>
-<div class="section" id="micro-optimisation-examples">
-<h2>Micro optimisation examples<a class="headerlink" href="#micro-optimisation-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="optimisation-examples">
+<h2>Optimisation examples<a class="headerlink" href="#optimisation-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vectorization-is-awesome">
+<h3>Vectorization is awesome<a class="headerlink" href="#vectorization-is-awesome" title="Permalink to this headline">¶</a></h3>
+<p>This is ALWAYS what you should check first: can you replace a for loop with numpy only arithmetics?</p>
+<p>Example salem and MetPy’s <code class="docutils literal notranslate"><span class="pre">interp_1d</span></code> function (useful for interpolating model levels):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/fmaussion/salem/blob/0ae5885e4f466fc333a14544df851501f11102fd/salem/wrftools.py#L496-L551">salem</a> uses naive interpolation but relies on multiprocessing to get speed-up</p></li>
+<li><p><a class="reference external" href="https://github.com/Unidata/MetPy/blob/8b01e1fd22304ffcd5e933cfa901a229ab8fba3f/src/metpy/interpolate/one_dimension.py#L53-L173">MetPy</a> uses clever vectorization and is faster.</p></li>
+</ul>
+</div>
 <div class="section" id="back-to-basics-xarray-numpy-own-functions">
-<h3>Back to basics xarray -&gt; numpy -&gt; own functions<a class="headerlink" href="#back-to-basics-xarray-numpy-own-functions" title="Permalink to this headline">¶</a></h3>
+<h3>Back to basics: xarray -&gt; numpy -&gt; own functions<a class="headerlink" href="#back-to-basics-xarray-numpy-own-functions" title="Permalink to this headline">¶</a></h3>
 <p>Because of the “generalization overhead” (certain numpy and xarray functions are slow because they are meant to be general and do a lot of input checks.</p>
 <p>If you know what your input looks like and have control over it, you can speed-up operations quite a bit.</p>
 <div class="section" id="xarray-and-pandas-are-slow-on-arithmetics">
@@ -478,7 +497,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">300</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -490,7 +509,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30.1 µs ± 603 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>60.3 µs ± 2.2 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
@@ -502,15 +521,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.01 µs ± 45.8 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29.9 µs ± 1.07 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
 </div>
 <p><em>Question to class: why?</em></p>
 </div>
-<div class="section" id="numpy-is-also-slow-in-certain-situations">
-<h4>numpy is also slow in certain situations<a class="headerlink" href="#numpy-is-also-slow-in-certain-situations" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="numpy-s-general-functions-are-sometimes-slower-than-the-direct-arithmetic-solution">
+<h4>numpy’s general functions are sometimes slower than the direct arithmetic solution<a class="headerlink" href="#numpy-s-general-functions-are-sometimes-slower-than-the-direct-arithmetic-solution" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
@@ -526,7 +545,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.2 µs ± 2.99 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.1 µs ± 743 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
@@ -535,6 +554,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_avg</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">wgt</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">wgt</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">wgt</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">w</span><span class="p">),</span> <span class="n">my_avg</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">w</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -546,7 +567,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.31 µs ± 235 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.4 µs ± 393 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
@@ -560,7 +581,15 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="n">surface_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">grad_np</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
+    <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+    <span class="n">gradient</span><span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">gradient</span>
+
 
 <span class="k">def</span> <span class="nf">my_grad</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
     <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">surface_h</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -568,24 +597,21 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="n">gradient</span><span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="n">gradient</span>
 
-<span class="k">def</span> <span class="nf">grad_np</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
-    <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+
+<span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">surface_h</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">my_super_grad</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
+    <span class="n">gradient</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">surface_h</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">surface_h</span><span class="p">[:</span><span class="n">nx</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span>
     <span class="n">gradient</span><span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="n">gradient</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">/tmp/ipykernel_34871/2327563128.py</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">dx</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">surface_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">my_grad</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">surface_h</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="ne">NameError</span>: name &#39;nx&#39; is not defined
+
+<span class="k">def</span> <span class="nf">my_super_super_grad</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
+    <span class="n">gradient</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">surface_h</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">surface_h</span><span class="p">[:</span><span class="n">nx</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span>
+    <span class="n">gradient</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">gradient</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">gradient</span>
 </pre></div>
 </div>
 </div>
@@ -593,16 +619,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">grad_np</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">),</span> <span class="n">my_grad</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">/tmp/ipykernel_34871/985462804.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">grad_np</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">),</span> <span class="n">my_grad</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;grad_np&#39; is not defined
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">grad_np</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">),</span> <span class="n">my_super_grad</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">grad_np</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">),</span> <span class="n">my_super_super_grad</span><span class="p">(</span><span class="n">surface_h</span><span class="p">,</span> <span class="n">dx</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -614,49 +632,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">/tmp/ipykernel_34871/1176812356.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;timeit&#39;</span><span class="p">,</span> <span class="s1">&#39;grad_np(surface_h, dx)&#39;</span><span class="p">)</span>
-
-<span class="nn">~/.pyenv/versions/3.8.5/envs/py3/lib/python3.8/site-packages/IPython/core/interactiveshell.py</span> in <span class="ni">run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2405</span>                 <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2406</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2407</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2408</span>             <span class="k">return</span> <span class="n">result</span>
-<span class="g g-Whitespace">   </span><span class="mi">2409</span> 
-
-<span class="nn">~/.pyenv/versions/3.8.5/envs/py3/lib/python3.8/site-packages/decorator.py</span> in <span class="ni">fun</span><span class="nt">(*args, **kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">230</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">kwsyntax</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">231</span>                 <span class="n">args</span><span class="p">,</span> <span class="n">kw</span> <span class="o">=</span> <span class="n">fix</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kw</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">232</span>             <span class="k">return</span> <span class="n">caller</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">extras</span> <span class="o">+</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">233</span>     <span class="n">fun</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
-<span class="g g-Whitespace">    </span><span class="mi">234</span>     <span class="n">fun</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__doc__</span>
-
-<span class="nn">~/.pyenv/versions/3.8.5/envs/py3/lib/python3.8/site-packages/IPython/core/magic.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(f, *a, **k)</span>
-<span class="g g-Whitespace">    </span><span class="mi">185</span>     <span class="c1"># but it&#39;s overkill for just that one bit of state.</span>
-<span class="g g-Whitespace">    </span><span class="mi">186</span>     <span class="k">def</span> <span class="nf">magic_deco</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">187</span>         <span class="n">call</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">188</span> 
-<span class="g g-Whitespace">    </span><span class="mi">189</span>         <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-
-<span class="nn">~/.pyenv/versions/3.8.5/envs/py3/lib/python3.8/site-packages/IPython/core/magics/execution.py</span> in <span class="ni">timeit</span><span class="nt">(self, line, cell, local_ns)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1178</span>             <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1179</span>                 <span class="n">number</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="n">index</span>
-<span class="ne">-&gt; </span><span class="mi">1180</span>                 <span class="n">time_number</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1181</span>                 <span class="k">if</span> <span class="n">time_number</span> <span class="o">&gt;=</span> <span class="mf">0.2</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1182</span>                     <span class="k">break</span>
-
-<span class="nn">~/.pyenv/versions/3.8.5/envs/py3/lib/python3.8/site-packages/IPython/core/magics/execution.py</span> in <span class="ni">timeit</span><span class="nt">(self, number)</span>
-<span class="g g-Whitespace">    </span><span class="mi">167</span>         <span class="n">gc</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">169</span>             <span class="n">timing</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">170</span>         <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span>             <span class="k">if</span> <span class="n">gcold</span><span class="p">:</span>
-
-<span class="nn">&lt;magic-timeit&gt;</span> in <span class="ni">inner</span><span class="nt">(_it, _timer)</span>
-
-<span class="ne">NameError</span>: name &#39;grad_np&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.1 µs ± 3.53 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
@@ -668,57 +644,109 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">/tmp/ipykernel_34871/708849975.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;timeit&#39;</span><span class="p">,</span> <span class="s1">&#39;my_grad(surface_h, dx)&#39;</span><span class="p">)</span>
-
-<span class="nn">~/.pyenv/versions/3.8.5/envs/py3/lib/python3.8/site-packages/IPython/core/interactiveshell.py</span> in <span class="ni">run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2405</span>                 <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2406</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2407</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2408</span>             <span class="k">return</span> <span class="n">result</span>
-<span class="g g-Whitespace">   </span><span class="mi">2409</span> 
-
-<span class="nn">~/.pyenv/versions/3.8.5/envs/py3/lib/python3.8/site-packages/decorator.py</span> in <span class="ni">fun</span><span class="nt">(*args, **kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">230</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">kwsyntax</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">231</span>                 <span class="n">args</span><span class="p">,</span> <span class="n">kw</span> <span class="o">=</span> <span class="n">fix</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kw</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">232</span>             <span class="k">return</span> <span class="n">caller</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">extras</span> <span class="o">+</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">233</span>     <span class="n">fun</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
-<span class="g g-Whitespace">    </span><span class="mi">234</span>     <span class="n">fun</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__doc__</span>
-
-<span class="nn">~/.pyenv/versions/3.8.5/envs/py3/lib/python3.8/site-packages/IPython/core/magic.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(f, *a, **k)</span>
-<span class="g g-Whitespace">    </span><span class="mi">185</span>     <span class="c1"># but it&#39;s overkill for just that one bit of state.</span>
-<span class="g g-Whitespace">    </span><span class="mi">186</span>     <span class="k">def</span> <span class="nf">magic_deco</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">187</span>         <span class="n">call</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">188</span> 
-<span class="g g-Whitespace">    </span><span class="mi">189</span>         <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-
-<span class="nn">~/.pyenv/versions/3.8.5/envs/py3/lib/python3.8/site-packages/IPython/core/magics/execution.py</span> in <span class="ni">timeit</span><span class="nt">(self, line, cell, local_ns)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1178</span>             <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1179</span>                 <span class="n">number</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="n">index</span>
-<span class="ne">-&gt; </span><span class="mi">1180</span>                 <span class="n">time_number</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1181</span>                 <span class="k">if</span> <span class="n">time_number</span> <span class="o">&gt;=</span> <span class="mf">0.2</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1182</span>                     <span class="k">break</span>
-
-<span class="nn">~/.pyenv/versions/3.8.5/envs/py3/lib/python3.8/site-packages/IPython/core/magics/execution.py</span> in <span class="ni">timeit</span><span class="nt">(self, number)</span>
-<span class="g g-Whitespace">    </span><span class="mi">167</span>         <span class="n">gc</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">169</span>             <span class="n">timing</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">170</span>         <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span>             <span class="k">if</span> <span class="n">gcold</span><span class="p">:</span>
-
-<span class="nn">&lt;magic-timeit&gt;</span> in <span class="ni">inner</span><span class="nt">(_it, _timer)</span>
-
-<span class="ne">NameError</span>: name &#39;my_grad&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.35 µs ± 212 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> my_super_grad(surface_h, dx)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.45 µs ± 121 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> my_super_super_grad(surface_h, dx)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.17 µs ± 333 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="vectorization-is-awesome">
-<h4>Vectorization is awesome<a class="headerlink" href="#vectorization-is-awesome" title="Permalink to this headline">¶</a></h4>
-<p>Example salem MetPy</p>
+<div class="section" id="but-numpy-is-already-super-clever">
+<h4>But numpy is already super clever<a class="headerlink" href="#but-numpy-is-already-super-clever" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_calc</span><span class="p">(</span><span class="n">surface_h</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">surface_h</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">surface_h</span> <span class="o">*</span> <span class="n">out</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">-</span> <span class="mi">100</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">not_useful_optim</span><span class="p">(</span><span class="n">surface_h</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">surface_h</span> <span class="o">*</span> <span class="p">(</span><span class="n">surface_h</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">100</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">some_calc</span><span class="p">(</span><span class="n">surface_h</span><span class="p">),</span> <span class="n">not_useful_optim</span><span class="p">(</span><span class="n">surface_h</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">also_not_useful_optim</span><span class="p">(</span><span class="n">surface_h</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">surface_h</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">out</span> <span class="o">*=</span> <span class="n">surface_h</span>
+    <span class="n">out</span> <span class="o">-=</span> <span class="mi">100</span>
+    <span class="k">return</span> <span class="n">out</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">some_calc</span><span class="p">(</span><span class="n">surface_h</span><span class="p">),</span> <span class="n">also_not_useful_optim</span><span class="p">(</span><span class="n">surface_h</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> some_calc(surface_h)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.23 µs ± 389 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> not_useful_optim(surface_h)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.06 µs ± 131 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> also_not_useful_optim(surface_h)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.56 µs ± 324 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
