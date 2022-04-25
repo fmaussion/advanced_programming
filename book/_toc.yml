@@ -19,3 +19,6 @@ parts:
     chapters:
     - file: 02_performance/class_notes
     - file: 02_performance/assignments
+  - caption: Advanced xarray
+    chapters:
+    - file: 03_advanced_xarray/class_notes
