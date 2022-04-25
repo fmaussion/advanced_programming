@@ -167,6 +167,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Advanced xarray
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_advanced_xarray/class_notes.html">
+   Advanced xarray
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav> <!-- To handle the deprecated key -->
@@ -336,6 +348,11 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#just-in-time-compilation">
+     Just in time compilation
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -422,6 +439,11 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#just-in-time-compilation">
+     Just in time compilation
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -477,6 +499,20 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="optimisation-examples">
 <h2>Optimisation examples<a class="headerlink" href="#optimisation-examples" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Always follow the further rules of scientific code optimisation in order:</p>
+<ol class="simple">
+<li><p>Don’t do it.</p></li>
+<li><p>Don’t do it (yet)</p></li>
+<li><p>Test before doing it</p></li>
+<li><p>Profile before doing it</p></li>
+<li><p>Check vectorization (removing <code class="docutils literal notranslate"><span class="pre">for</span></code> loops)</p></li>
+<li><p>Remove pandas / xarray overlay</p></li>
+<li><p>Optimize numpy code</p></li>
+<li><p>Check numba or PyPy</p></li>
+</ol>
+</div>
 <div class="section" id="vectorization-is-awesome">
 <h3>Vectorization is awesome<a class="headerlink" href="#vectorization-is-awesome" title="Permalink to this headline">¶</a></h3>
 <p>This is ALWAYS what you should check first: can you replace a for loop with numpy only arithmetics?</p>
@@ -509,7 +545,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>59.7 µs ± 5.49 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>54.3 µs ± 2.48 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
@@ -521,7 +557,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>27.3 µs ± 689 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26 µs ± 1.32 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
@@ -545,7 +581,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.8 µs ± 687 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.2 µs ± 1.65 µs per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
@@ -567,7 +603,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.5 µs ± 319 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.14 µs ± 241 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
@@ -632,7 +668,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.9 µs ± 1.42 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.2 µs ± 1.91 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </pre></div>
 </div>
 </div>
@@ -644,7 +680,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.15 µs ± 72 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.62 µs ± 138 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
@@ -656,7 +692,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.43 µs ± 23.9 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.93 µs ± 188 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
@@ -668,7 +704,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.02 µs ± 20.3 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.85 µs ± 130 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
@@ -719,7 +755,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.83 µs ± 5.29 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.38 µs ± 141 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
@@ -731,7 +767,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.86 µs ± 19.3 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.56 µs ± 194 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
@@ -743,13 +779,19 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.46 µs ± 18.7 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.93 µs ± 86.4 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
 </div>
 <p>This is because python + numpy already knows how to compile this code to be optimized, i.e. it recognizes where the culprits are and solves them.</p>
 </div>
+</div>
+<div class="section" id="just-in-time-compilation">
+<h3>Just in time compilation<a class="headerlink" href="#just-in-time-compilation" title="Permalink to this headline">¶</a></h3>
+<p>For pure numpy code with unavoidable loops (typical for numerical models with a time stepping for example), <a class="reference external" href="https://numba.pydata.org">numba</a> is probably the best shot you have at considerably speeding up your code. We’ll make an example in class.</p>
+<p>Numba is extensively used in some applications, e.g. for <a class="reference external" href="https://github.com/cryotools/cosipy">cosipy</a>. It has some drawbacks though (we discuss in class).</p>
+<p>For some applications, <a class="reference external" href="https://www.pypy.org">pypy</a> might be worth a shot but it requires using another python interpreter.</p>
 </div>
 </div>
 </div>
