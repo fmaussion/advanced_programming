@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advanced xarray &#8212; Advanced Scientific Programming</title>
+    <title>Assignments &#8212; Advanced Scientific Programming</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,8 +51,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assignments" href="assignments.html" />
-    <link rel="prev" title="Assignments" href="../02_performance/assignments.html" />
+    <link rel="prev" title="Advanced xarray" href="class_notes.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -173,13 +172,13 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="class_notes.html">
    Advanced xarray
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="assignments.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Assignments
   </a>
  </li>
@@ -224,7 +223,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/03_advanced_xarray/class_notes.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/03_advanced_xarray/assignments.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -244,10 +243,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/fmaussion/advanced_programming/issues/new?title=Issue%20on%20page%20%2F03_advanced_xarray/class_notes.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/fmaussion/advanced_programming/issues/new?title=Issue%20on%20page%20%2F03_advanced_xarray/assignments.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/fmaussion/advanced_programming/edit/master/book/03_advanced_xarray/class_notes.ipynb"><button
+        <a class="edit-button" href="https://github.com/fmaussion/advanced_programming/edit/master/book/03_advanced_xarray/assignments.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -267,7 +266,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/fmaussion/advanced_programming/master?urlpath=lab/tree/book/03_advanced_xarray/class_notes.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/fmaussion/advanced_programming/master?urlpath=lab/tree/book/03_advanced_xarray/assignments.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -284,6 +283,31 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-06">
+   Week 06
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-01-xarray-sel-points">
+     Exercise 01: xarray sel points
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-02-medium-data">
+     Exercise 02: medium data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -291,20 +315,130 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Advanced xarray</h1>
+                <h1>Assignments</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-06">
+   Week 06
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-01-xarray-sel-points">
+     Exercise 01: xarray sel points
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-02-medium-data">
+     Exercise 02: medium data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="advanced-xarray">
-<h1>Advanced xarray<a class="headerlink" href="#advanced-xarray" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://hackmd.io/&#64;fmaussion/B17w40XS5">https://hackmd.io/&#64;fmaussion/B17w40XS5</a></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="assignments">
+<h1>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="week-06">
+<h2>Week 06<a class="headerlink" href="#week-06" title="Permalink to this headline">¶</a></h2>
+<p><em>“Due date”: 09.05.2022</em></p>
+<div class="section" id="exercise-01-xarray-sel-points">
+<h3>Exercise 01: xarray sel points<a class="headerlink" href="#exercise-01-xarray-sel-points" title="Permalink to this headline">¶</a></h3>
+<p>Data:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cluster.klima.uni-bremen.de/~fmaussion/teaching/advpro/Copernicus_DSM_10_N46_00_E010_00_DEM.tif">https://cluster.klima.uni-bremen.de/~fmaussion/teaching/advpro/Copernicus_DSM_10_N46_00_E010_00_DEM.tif</a></p></li>
+<li><p><a class="reference external" href="https://cluster.klima.uni-bremen.de/~fmaussion/teaching/advpro/HEF_RGI.zip">https://cluster.klima.uni-bremen.de/~fmaussion/teaching/advpro/HEF_RGI.zip</a></p></li>
+</ul>
+<p>Let me open this for you:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rioxarray</span> <span class="k">as</span> <span class="nn">rioxr</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span> <span class="o">=</span> <span class="n">rioxr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="s1">&#39;Copernicus_DSM_10_N46_00_E010_00_DEM.tif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;zip://HEF_RGI.zip!/HEF_RGI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">();</span>
+<span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/assignments_8_01.png" src="../_images/assignments_8_01.png" />
+</div>
+</div>
+<p>Good! Now:</p>
+<ul class="simple">
+<li><p>extract the lons and lats coordinates of the glacier outline (this is a geopandas + shapely question)</p></li>
+<li><p>use <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/interpolation.html">xarray interpolation</a> to get the elevation of each vertice along the outlines</p></li>
+<li><p>make a plot more or less <a class="reference external" href="https://github.com/fmaussion/advanced_programming/blob/master/book/03_advanced_xarray/xarray_interp.png">looking like this</a>.</p></li>
+</ul>
+<p>The whole exercise is 4 lines of code. It’s all about reading the docs ;-)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-02-medium-data">
+<h3>Exercise 02: medium data<a class="headerlink" href="#exercise-02-medium-data" title="Permalink to this headline">¶</a></h3>
+<p>Please read the <a class="reference external" href="https://docs.xarray.dev/en/latest/user-guide/dask.html">dask + xarray documentation</a> page first.</p>
+<p>I have downloaded ERA5 hourly precipitation data for you. You will find the files here: <a class="reference external" href="https://cluster.klima.uni-bremen.de/~fmaussion/teaching/climate/dask_exps/HiRes_Hourly_Surf">https://cluster.klima.uni-bremen.de/~fmaussion/teaching/climate/dask_exps/HiRes_Hourly_Surf</a></p>
+<p>I’m still downloading them, but the year 2021 is complete. <strong>Your task is to compute the daily cycle (i.e. hourly average) over the entire year 2021.</strong> (shape: <code class="docutils literal notranslate"><span class="pre">(24,</span> <span class="pre">nlat,</span> <span class="pre">nlon)</span></code>).</p>
+<p>You can do so by various means, but as a first step I recommend to:</p>
+<ul class="simple">
+<li><p>open all 12 monthly files individually in a for loop</p></li>
+<li><p>use dask to chunk the files before computing the daily cycle (not strictly necessary but you can try with and without it)</p></li>
+<li><p>save the output in an intermediate netcdf file</p></li>
+<li><p>open the intermediate netcdf files to average them (ideally weighting by month length)</p></li>
+</ul>
+<p><strong>If you are adventurous,</strong> try to do it without for loop, with <code class="docutils literal notranslate"><span class="pre">open_mfdataset</span></code>. Since Monday I’ve tried quite a few things myself and discovered one of the main problems I was facing with <code class="docutils literal notranslate"><span class="pre">open_mfdataset</span></code>: one needs to specify the chunks <em>at opening</em> (i.e. <code class="docutils literal notranslate"><span class="pre">open_mfdataset('',</span> <span class="pre">chunks=...)</span></code> and not after (as I tried to do in class). I even <a class="reference external" href="https://github.com/pydata/xarray/pull/6569">opened a PR</a> to improve the xarray docs in this respect. With this I <em>almost</em> managed to compute the daily cycle but it is still not working as efficiently as I’d like it to. Maybe it’ll work better for you?</p>
+<p><strong>Bonus</strong>: make a pretty gif out of it:</p>
+<p><img alt="" src="../_images/example_2021.gif" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -332,19 +466,12 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../02_performance/assignments.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="class_notes.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Assignments</p>
+            <p class="prev-next-title">Advanced xarray</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="assignments.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Assignments</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             

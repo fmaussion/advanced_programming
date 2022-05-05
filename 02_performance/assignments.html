@@ -178,6 +178,11 @@ const thebe_selector_output = ".output, .cell_output"
    Advanced xarray
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_advanced_xarray/assignments.html">
+   Assignments
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -507,7 +512,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.38 s ± 56.6 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.46 s ± 46.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -525,7 +530,21 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.89 s ± 16.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.81 s ± 47.3 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>And then in class I also showed you numba:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glacier_model_optim_numb</span> <span class="kn">import</span> <span class="n">glacier_evolution_optim_numba</span>
+<span class="o">%</span><span class="k">timeit</span> glacier_evolution_optim_numba()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>154 ms ± 1.15 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -553,7 +572,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/assignments_28_0.png" src="../_images/assignments_28_0.png" />
+<img alt="../_images/assignments_30_0.png" src="../_images/assignments_30_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -563,7 +582,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/assignments_29_0.png" src="../_images/assignments_29_0.png" />
+<img alt="../_images/assignments_31_0.png" src="../_images/assignments_31_0.png" />
 </div>
 </div>
 <p><strong>What if we want to make 100 experiments instead of 3?</strong></p>
