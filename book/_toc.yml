@@ -22,3 +22,4 @@ parts:
   - caption: Advanced xarray
     chapters:
     - file: 03_advanced_xarray/class_notes
+    - file: 03_advanced_xarray/assignments
