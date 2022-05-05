@@ -108,3 +108,6 @@ ENV/
 # Specific
 book/week_05/ERA-Int-MonthlyAvg-4D-T.nc
 .virtual_documents
+HEF_RGI.zip
+Copernicus_DSM_10_N46_00_E010_00_DEM.tif
+
