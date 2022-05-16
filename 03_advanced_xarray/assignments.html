@@ -51,6 +51,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python design patterns" href="../04_design/class_notes.html" />
     <link rel="prev" title="Advanced xarray" href="class_notes.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -183,6 +184,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Design patterns
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_design/class_notes.html">
+   Python design patterns
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav> <!-- To handle the deprecated key -->
@@ -305,18 +318,6 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-07">
-   Week 07
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#xarray-accessors">
-     xarray accessors
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 
             </nav>
@@ -350,18 +351,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercise-02-medium-data">
      Exercise 02: medium data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-07">
-   Week 07
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#xarray-accessors">
-     xarray accessors
     </a>
    </li>
   </ul>
@@ -454,17 +443,6 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>If you are adventurous,</strong> try to do it without for loop, with <code class="docutils literal notranslate"><span class="pre">open_mfdataset</span></code>. Since Monday I’ve tried quite a few things myself and discovered one of the main problems I was facing with <code class="docutils literal notranslate"><span class="pre">open_mfdataset</span></code>: one needs to specify the chunks <em>at opening</em> (i.e. <code class="docutils literal notranslate"><span class="pre">open_mfdataset('',</span> <span class="pre">chunks=...)</span></code> and not after (as I tried to do in class). I even <a class="reference external" href="https://github.com/pydata/xarray/pull/6569">opened a PR</a> to improve the xarray docs in this respect. With this I <em>almost</em> managed to compute the daily cycle but it is still not working as efficiently as I’d like it to. Maybe it’ll work better for you?</p>
 <p><strong>Bonus</strong>: make a pretty gif out of it:</p>
 <p><img alt="" src="../_images/example_2021.gif" /></p>
-</div>
-</div>
-<div class="section" id="week-07">
-<h2>Week 07<a class="headerlink" href="#week-07" title="Permalink to this headline">¶</a></h2>
-<p><em>“Due date”: 16.05.2022</em></p>
-<div class="section" id="xarray-accessors">
-<h3>xarray accessors<a class="headerlink" href="#xarray-accessors" title="Permalink to this headline">¶</a></h3>
-<p><strong>Your task is to code an accessor that adds something to xarray (I don’t mind what).</strong></p>
-<p>If you don’t know what to add, code an accessor that understands global data and plots climate maps when asked to (with <code class="docutils literal notranslate"><span class="pre">ds.myaccessor.plot()</span></code> on a single timestep array). Extending it could be to make multiple plots when there are more than one time step. As plot map background, use the typical global maps from the <a class="reference external" href="https://fabienmaussion.info/climate_system/welcome.html">climate lecture</a>.</p>
-<p>Before you start coding right away, read this doc page: <a class="reference external" href="https://docs.xarray.dev/en/stable/internals/extending-xarray.html">https://docs.xarray.dev/en/stable/internals/extending-xarray.html</a></p>
-<p>While you are at it, read a little bit about the “composition over inheritance” principle as well (don’t overdo it - <a class="reference external" href="https://python-patterns.guide/">this page</a> is not bad but quite advanced).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer here</span>
@@ -507,6 +485,13 @@ const thebe_selector_output = ".output, .cell_output"
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Advanced xarray</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../04_design/class_notes.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python design patterns</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
