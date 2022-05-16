@@ -23,3 +23,7 @@ parts:
     chapters:
     - file: 03_advanced_xarray/class_notes
     - file: 03_advanced_xarray/assignments
+  - caption: Design patterns
+    chapters:
+    - file: 04_design/class_notes.ipynb
+    
