@@ -192,7 +192,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../04_design/class_notes.html">
-   Python design patterns
+   Python “design patterns”
   </a>
  </li>
 </ul>
@@ -524,7 +524,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.46 s ± 46.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.65 s ± 73.4 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -542,7 +542,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.81 s ± 47.3 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.08 s ± 102 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -556,7 +556,34 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>154 ms ± 1.15 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="nn">/tmp/ipykernel_9420/1162403739.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">glacier_model_optim_numb</span> <span class="kn">import</span> <span class="n">glacier_evolution_optim_numba</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;timeit&#39;</span><span class="p">,</span> <span class="s1">&#39;glacier_evolution_optim_numba()&#39;</span><span class="p">)</span>
+
+<span class="o">~/</span><span class="n">disk</span><span class="o">/</span><span class="n">Dropbox</span><span class="o">/</span><span class="n">HomeDocs</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">advanced_programming</span><span class="o">/</span><span class="n">book</span><span class="o">/</span><span class="mi">02</span><span class="n">_performance</span><span class="o">/</span><span class="n">glacier_model_optim_numb</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">jit</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">sec_in_day</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span>
+
+<span class="o">~/.</span><span class="n">pyenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mf">3.8.5</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">py3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">numba</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span> 
+<span class="g g-Whitespace">    </span><span class="mi">199</span> <span class="n">_ensure_llvm</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">200</span> <span class="n">_ensure_critical_deps</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span> 
+<span class="g g-Whitespace">    </span><span class="mi">202</span> <span class="c1"># we know llvmlite is working as the above tests passed, import it now as SVML</span>
+
+<span class="nn">~/.pyenv/versions/3.8.5/envs/py3/lib/python3.8/site-packages/numba/__init__.py</span> in <span class="ni">_ensure_critical_deps</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;Numba needs NumPy 1.18 or greater&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="k">elif</span> <span class="n">numpy_version</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">140</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;Numba needs NumPy 1.21 or less&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span> 
+<span class="g g-Whitespace">    </span><span class="mi">142</span>     <span class="k">try</span><span class="p">:</span>
+
+<span class="ne">ImportError</span>: Numba needs NumPy 1.21 or less
 </pre></div>
 </div>
 </div>

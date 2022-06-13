@@ -192,7 +192,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../04_design/class_notes.html">
-   Python design patterns
+   Python “design patterns”
   </a>
  </li>
 </ul>
@@ -296,6 +296,39 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dimension-vs-non-dimension-coordinates">
+   Dimension vs non-dimension coordinates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#map-projections-and-dimension-non-dimension-coordinates">
+   Map projections and dimension / non-dimension coordinates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#netcdf-to-memory">
+   netcdf to memory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-to-netcdf-and-encoding">
+   writing to netcdf and encoding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dask">
+   Dask
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -308,6 +341,39 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dimension-vs-non-dimension-coordinates">
+   Dimension vs non-dimension coordinates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#map-projections-and-dimension-non-dimension-coordinates">
+   Map projections and dimension / non-dimension coordinates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#netcdf-to-memory">
+   netcdf to memory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-to-netcdf-and-encoding">
+   writing to netcdf and encoding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dask">
+   Dask
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -317,6 +383,60 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="advanced-xarray">
 <h1>Advanced xarray<a class="headerlink" href="#advanced-xarray" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://hackmd.io/&#64;fmaussion/B17w40XS5">https://hackmd.io/&#64;fmaussion/B17w40XS5</a></p>
+<div class="section" id="dimension-vs-non-dimension-coordinates">
+<h2>Dimension vs non-dimension coordinates<a class="headerlink" href="#dimension-vs-non-dimension-coordinates" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/data-structures.html?highlight=coordinates#coordinates">link</a></p>
+</div>
+<div class="section" id="map-projections-and-dimension-non-dimension-coordinates">
+<h2>Map projections and dimension / non-dimension coordinates<a class="headerlink" href="#map-projections-and-dimension-non-dimension-coordinates" title="Permalink to this headline">¶</a></h2>
+<p><em>Specific for atmospheric science</em>: be careful about your map projections! You have to make a choice: is it useful for you to work with lat/lon? Or eastings/northings (constant grid spacing in kilometers)?
+Because of the map projections, it could happen that once you select a box of certain lat/lon extent, you will end up with some NaN padding on the edges of your domain if your dimensions coordinates are specified as x/y. Note that you cant select a “box” if (lon, lat) are 2D coordinates. In this case you might use xarray <a class="reference external" href="https://xarray.pydata.org/en/v0.8.2/generated/xarray.Dataset.where.html">where</a> with <code class="docutils literal notranslate"><span class="pre">drop=True</span></code></p>
+<p>For dealing with projections, check out <code class="docutils literal notranslate"><span class="pre">cartopy</span></code> (plotting) and <code class="docutils literal notranslate"><span class="pre">xESMF</span></code> (regridder for geospatial data, that can also deal with (x,y)-non-dimensional coordinates): <a class="reference external" href="https://xesmf.readthedocs.io">https://xesmf.readthedocs.io</a></p>
+</div>
+<div class="section" id="netcdf-to-memory">
+<h2>netcdf to memory<a class="headerlink" href="#netcdf-to-memory" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>old-school way to check out the content of netcdf files without loading them: <code class="docutils literal notranslate"><span class="pre">ncdump</span></code> (<code class="docutils literal notranslate"><span class="pre">ncdump</span> <span class="pre">-h</span> <span class="pre">filename.nc</span></code>, where <code class="docutils literal notranslate"><span class="pre">h</span></code> stands for human-readable)</p></li>
+<li><p><span class="xref myst">CF conventions</span>: conventions of metadata (the form they need to have)</p></li>
+<li><p>Reading is a costly operation! Thus, when we first open a netcdf file, <code class="docutils literal notranslate"><span class="pre">xarray</span></code> parses only the necessary information (coords, dims), but the actual data is not loaded - it only says how many values the dataset contains (“lazy loading/evaluation” - this happen only at the moment when the values are needed)</p></li>
+</ul>
+</div>
+<div class="section" id="writing-to-netcdf-and-encoding">
+<h2>writing to netcdf and encoding<a class="headerlink" href="#writing-to-netcdf-and-encoding" title="Permalink to this headline">¶</a></h2>
+<p><strong>Compression:</strong></p>
+<ul class="simple">
+<li><p>Files can be kept smaller (by a factor of 2) by using the “short” format for integers, i.e. 16 bits (16-bit floats are referred to as “half-precision”) instead of float 32-bit format, therefore 2 more attributes (a scale-factor and an offset are stored, which are used to ‘unpack’ the dataset whilst loading). This is <strong>lossy compression</strong> - precision is lost because of how the data is stored. The scale factor and offset are chosen so that this loss is minimal - still spanning the full range of data.</p></li>
+<li><p><strong>lossless compression</strong>: <code class="docutils literal notranslate"><span class="pre">zip</span></code>/<code class="docutils literal notranslate"><span class="pre">gzip</span></code> - these use redundancy in the stored data. Netcfd is a “naive” data format - it doesn’t take into account redundancy - each value is stored individually, no matter how many times the data is repeated, whether all values are NaNs or unique floats. On the other hand, lossless compression uses these non-unique values  the more repeated values there are, the more compression we can get.</p>
+<ul>
+<li><p><strong>Advantages</strong>: less space on the disk</p></li>
+<li><p><strong>Disdvantages</strong>: we can’t read just parts of the data (or do it way slower)</p></li>
+</ul>
+</li>
+<li><p>lossy + lossless compression can be combined.</p></li>
+</ul>
+<p><a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/io.html#writing-encoded-data">Xarray docs on the subject</a></p>
+</div>
+<div class="section" id="dask">
+<h2>Dask<a class="headerlink" href="#dask" title="Permalink to this headline">¶</a></h2>
+<p>Big buzzword in the big-data community! (Big data = your memory does not fit the data you need to load).</p>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">xarray</span></code> does not use <code class="docutils literal notranslate"><span class="pre">dask</span></code>. Among other things which can make our lives easier, in the background <code class="docutils literal notranslate"><span class="pre">dask</span></code> uses multiprocessing.</p>
+<p>Dask allows us to do operation on data which does not fit in the memory by:</p>
+<ul class="simple">
+<li><p>delaying evaluation to the latest possible moment</p></li>
+<li><p>chunking the data (e.g. <code class="docutils literal notranslate"><span class="pre">ds</span> <span class="pre">=</span> <span class="pre">ds.chunk({'time':12})</span></code> divides the dataset into 12 chunks - individual slices - along the time dimension)</p></li>
+</ul>
+<p>When we request an operation on a dask array, it only knows what are all the steps necessary for the calculation (e.g. first add 2, then multiply by 3…). Once we e.g. plot the data, only then all the operations are evaluated.</p>
+<ul class="simple">
+<li><p>To check out the pipeline, we can easily visualize the graph: <code class="docutils literal notranslate"><span class="pre">chunked_ds.data.visualize('image.svg')</span></code>. This is useful for understanding what’s going on - what are all the steps of our computation.</p></li>
+<li><p>if we use <code class="docutils literal notranslate"><span class="pre">xp.open_mfdataset()</span></code> (i.e. open multi-file dataset), dask is use automatically and the data is chunked by files.</p></li>
+</ul>
+<p>We will talk about the homework, and <a class="reference external" href="https://github.com/pydata/xarray/pull/6569/">this PR</a> and <a class="reference external" href="https://discourse.pangeo.io/t/dask-xarray-and-swap-memory-polution-on-local-linux-cluster/2453">this post</a></p>
+<p>The place to be for big data analytics: <a class="reference external" href="https://pangeo.io">https://pangeo.io</a></p>
+<p>The vision for the future of computing with large datasets: The idea of <strong>Pangeo</strong> is to <em>not</em> download large amounts of data, but to store the data only at one place (cloud) and providing access to people who wants to use it.
+<strong>Copernicus data</strong>: <a class="reference external" href="https://cds.climate.copernicus.eu/toolbox/doc/index.html">CDS toolbox</a></p>
+<p>We will then talk about xarray accessors: <a class="reference external" href="https://docs.xarray.dev/en/stable/internals/extending-xarray.html">https://docs.xarray.dev/en/stable/internals/extending-xarray.html</a></p>
+<p>And this will be the introduction to decorators in python: <a class="reference external" href="https://realpython.com/primer-on-python-decorators">https://realpython.com/primer-on-python-decorators</a></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
