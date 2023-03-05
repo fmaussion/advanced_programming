@@ -7,23 +7,19 @@ parts:
   - caption: Introduction
     chapters:
     - file: syllabus
-    - url: https://fabienmaussion.info/scientific_programming/faq.html
-      title: Frequently Asked Questions
-    - file: references
-    - file: slides
-  - caption: Version control with git
-    chapters:
-    - file: 01_git/class_notes
-    - file: 01_git/assignments
-  - caption: Performance
-    chapters:
-    - file: 02_performance/class_notes
-    - file: 02_performance/assignments
-  - caption: Advanced xarray
-    chapters:
-    - file: 03_advanced_xarray/class_notes
-    - file: 03_advanced_xarray/assignments
-  - caption: Design patterns
-    chapters:
-    - file: 04_design/class_notes.ipynb
+  # - caption: Version control with git
+    # chapters:
+  #   - file: 01_git/class_notes
+  #   - file: 01_git/assignments
+  # - caption: Performance
+  #   chapters:
+  #   - file: 02_performance/class_notes
+  #   - file: 02_performance/assignments
+  # - caption: Advanced xarray
+  #   chapters:
+  #   - file: 03_advanced_xarray/class_notes
+  #   - file: 03_advanced_xarray/assignments
+  # - caption: Design patterns
+  #   chapters:
+  #   - file: 04_design/class_notes.ipynb
     
