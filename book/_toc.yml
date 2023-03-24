@@ -7,10 +7,10 @@ parts:
   - caption: Introduction
     chapters:
     - file: syllabus
-  # - caption: Version control with git
-    # chapters:
-  #   - file: 01_git/class_notes
-  #   - file: 01_git/assignments
+  - caption: Version control with git
+    chapters:
+    - file: 01_git/class_notes
+    - file: 01_git/assignments
   # - caption: Performance
   #   chapters:
   #   - file: 02_performance/class_notes

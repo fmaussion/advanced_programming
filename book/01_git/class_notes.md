@@ -14,14 +14,32 @@
    - The actual code changes
    - Go back to previous versions
  - Collaboration
-     - Helping with merge conflicts
-     - Simultaneous development
+   - Helping with merge conflicts
+   - Simultaneous development
  - Develop and test new stuff (on `branches`) without breaking the production (on the `master`/`main`/`trunk` branch)
+
+#### Advantages for individual work
+
+ - "Time Machine": go back to an earlier version meaning you are not afraid to "break" something
+ - Versioning of the software by using tags (e.g. `v0.2.1`)
+ - Documentation of the code and changes between "snapshots"
+ - Backup of the code in a remote repository (hosted by GitHub/GitLab etc.)
+
+####  Advantages for group work 
+ 
+ - allows you to make "copies" of the code (branches) to work simultaneously on a project and merge them properly
+ - "Merge-requests" for other people to include changes
+
+#### Limitations
+
+ - git is made for text files (e.g. files stored in a non-propriatary format)
+ - some functionality is lost if using it for binary files
 
 ### How to install git?
 
 - `brew` or `apt` on Mac, Linux
 - https://gitforwindows.org with the `git bash` programme (my recommendation)
+
 
 
 ### GitLab, GitHub?
@@ -164,7 +182,6 @@ A good way of not getting into this situation in the first place is to get in th
 With checkout origin/main -> you are changing in the branch origin/main. 
 
 In the local git repository you can find a `.git` folder (hidden folder) where all the changes are stored.
-
 
 ## Workflow for collaboration
 
