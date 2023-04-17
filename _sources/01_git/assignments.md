@@ -1,4 +1,4 @@
-# Assignments
+# Assignments git
 
 ## git exercise 1: a typical workflow for a 1 person project
 
@@ -33,7 +33,7 @@ That's it! You've already learned a bunch about git with only just this workflow
 
 ## git exercise 2: a typical workflow for a team project
 
-"due date": 27.03.2022
+"due date": 27.03.2023
 
 We learned how to do a "merge request" in class. Your tasks this week are to:
 
