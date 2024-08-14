@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Version control with git &#8212; Advanced Scientific Programming</title>
   
@@ -15,66 +14,72 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-88391345-1"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5BGML8VW02"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
                 gtag('js', new Date());
-                gtag('config', 'UA-88391345-1');
+                gtag('config', 'G-5BGML8VW02');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-5BGML8VW02');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '01_git/class_notes';</script>
+    <script data-domain="fabienmaussion.info" defer="defer" src="https://plausible.oggm.org/js/script.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Assignments git" href="assignments.html" />
     <link rel="prev" title="Syllabus" href="../syllabus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="Aug 14, 2024"/>
   </head>
   
   
@@ -82,19 +87,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -116,12 +125,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -136,9 +153,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../welcome.html">
+  
   
   
   
@@ -148,12 +169,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Advanced Scientific Programming - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Advanced Scientific Programming - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -196,7 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -205,14 +237,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -351,26 +383,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -424,16 +458,16 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="version-control-with-git">
-<h1>Version control with git<a class="headerlink" href="#version-control-with-git" title="Permalink to this headline">#</a></h1>
+<h1>Version control with git<a class="headerlink" href="#version-control-with-git" title="Link to this heading">#</a></h1>
 <p><em>Copyright notice: all these notes have been taken collaboratively in class during the lecture. Everyone is an author.</em></p>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Git</span></code> is a version control tool, which basically keeps track of changes. When a change is pushed, git removes/replaces/adds only the changed lines. Everyone has a full copy of the entire git tree, that is everything. The best way to learn git is to just do it. Just try, and you will learn as you go. The nice thing with git is that all the changes are saved, so if you screw up it is always possible and easy to go back…</p>
 <section id="why-version-control">
-<h3>Why version control?<a class="headerlink" href="#why-version-control" title="Permalink to this headline">#</a></h3>
+<h3>Why version control?<a class="headerlink" href="#why-version-control" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>History</p>
 <ul>
@@ -451,7 +485,7 @@ document.write(`
 <li><p>Develop and test new stuff (on <code class="docutils literal notranslate"><span class="pre">branches</span></code>) without breaking the production (on the <code class="docutils literal notranslate"><span class="pre">master</span></code>/<code class="docutils literal notranslate"><span class="pre">main</span></code>/<code class="docutils literal notranslate"><span class="pre">trunk</span></code> branch)</p></li>
 </ul>
 <section id="advantages-for-individual-work">
-<h4>Advantages for individual work<a class="headerlink" href="#advantages-for-individual-work" title="Permalink to this headline">#</a></h4>
+<h4>Advantages for individual work<a class="headerlink" href="#advantages-for-individual-work" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>“Time Machine”: go back to an earlier version meaning you are not afraid to “break” something</p></li>
 <li><p>Versioning of the software by using tags (e.g. <code class="docutils literal notranslate"><span class="pre">v0.2.1</span></code>)</p></li>
@@ -460,14 +494,14 @@ document.write(`
 </ul>
 </section>
 <section id="advantages-for-group-work">
-<h4>Advantages for group work<a class="headerlink" href="#advantages-for-group-work" title="Permalink to this headline">#</a></h4>
+<h4>Advantages for group work<a class="headerlink" href="#advantages-for-group-work" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>allows you to make “copies” of the code (branches) to work simultaneously on a project and merge them properly</p></li>
 <li><p>“Merge-requests” for other people to include changes</p></li>
 </ul>
 </section>
 <section id="limitations">
-<h4>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h4>
+<h4>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>git is made for text files (e.g. files stored in a non-propriatary format)</p></li>
 <li><p>some functionality is lost if using it for binary files</p></li>
@@ -475,14 +509,14 @@ document.write(`
 </section>
 </section>
 <section id="how-to-install-git">
-<h3>How to install git?<a class="headerlink" href="#how-to-install-git" title="Permalink to this headline">#</a></h3>
+<h3>How to install git?<a class="headerlink" href="#how-to-install-git" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">brew</span></code> or <code class="docutils literal notranslate"><span class="pre">apt</span></code> on Mac, Linux</p></li>
 <li><p><a class="reference external" href="https://gitforwindows.org">https://gitforwindows.org</a> with the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">bash</span></code> programme (my recommendation)</p></li>
 </ul>
 </section>
 <section id="gitlab-github">
-<h3>GitLab, GitHub?<a class="headerlink" href="#gitlab-github" title="Permalink to this headline">#</a></h3>
+<h3>GitLab, GitHub?<a class="headerlink" href="#gitlab-github" title="Link to this heading">#</a></h3>
 <p><em>Git</em> is the version control <em>software</em>. That’s what everyone uses and needs to install.</p>
 <p>GitLab and GitHub are online services built around Git. Nowadays, they provide much more than pure version control</p>
 <ul class="simple">
@@ -496,7 +530,7 @@ document.write(`
 <p><a class="reference external" href="http://git.uibk.ac.at">git.uibk.ac.at</a> is a <strong>local gitlab server</strong> and is only good for local university projects. With a local repository at UIBK you know exactly where the data is stored. You can move repositories around, so starting at UIBK and then move to <a class="reference external" href="http://gitlab.com">gitlab.com</a> is always an option, because you have a full copy of all the code and changes on your computer. However, moving the repository will not include all the online extra info, e.g. <strong>issues</strong> with discussions, history of <strong>pull requests</strong> with discussions, statistics, …</p>
 </section>
 <section id="examples-of-utilization-of-gitlab-github">
-<h3>Examples of utilization of GitLab/GitHub<a class="headerlink" href="#examples-of-utilization-of-gitlab-github" title="Permalink to this headline">#</a></h3>
+<h3>Examples of utilization of GitLab/GitHub<a class="headerlink" href="#examples-of-utilization-of-gitlab-github" title="Link to this heading">#</a></h3>
 <p><strong>Project management:</strong></p>
 <ul class="simple">
 <li><p><a class="github reference external" href="https://github.com/GLIMS-RGI/rgi7_scripts/issues">GLIMS-RGI/rgi7_scripts#issues</a></p></li>
@@ -531,7 +565,7 @@ document.write(`
 </ul>
 </section>
 <section id="not-so-nice-with-git">
-<h3>Not so nice with git<a class="headerlink" href="#not-so-nice-with-git" title="Permalink to this headline">#</a></h3>
+<h3>Not so nice with git<a class="headerlink" href="#not-so-nice-with-git" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Pictures, data, binary files:</p>
 <ul>
@@ -547,13 +581,13 @@ document.write(`
 </ul>
 </section>
 <section id="not-so-nice-with-gitlab-uibk">
-<h3>Not so nice with gitLab &#64;UIBK<a class="headerlink" href="#not-so-nice-with-gitlab-uibk" title="Permalink to this headline">#</a></h3>
+<h3>Not so nice with gitLab &#64;UIBK<a class="headerlink" href="#not-so-nice-with-gitlab-uibk" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>slightly more complex if people outside of the university want to join</p></li>
 </ul>
 </section>
 <section id="not-so-nice-with-github">
-<h3>Not so nice with github<a class="headerlink" href="#not-so-nice-with-github" title="Permalink to this headline">#</a></h3>
+<h3>Not so nice with github<a class="headerlink" href="#not-so-nice-with-github" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Physical Location of data is not known, closed source company</p></li>
 <li><p>Gitlab in turn is “open core” company, which is nice</p></li>
@@ -561,7 +595,7 @@ document.write(`
 </section>
 </section>
 <section id="learning-git">
-<h2>Learning git<a class="headerlink" href="#learning-git" title="Permalink to this headline">#</a></h2>
+<h2>Learning git<a class="headerlink" href="#learning-git" title="Link to this heading">#</a></h2>
 <p>Some resources:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></p></li>
@@ -569,7 +603,7 @@ document.write(`
 <li><p><a class="reference external" href="https://about.gitlab.com/learn">https://about.gitlab.com/learn</a></p></li>
 </ul>
 <section id="getting-started-with-git">
-<h3>Getting started with git<a class="headerlink" href="#getting-started-with-git" title="Permalink to this headline">#</a></h3>
+<h3>Getting started with git<a class="headerlink" href="#getting-started-with-git" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>you always want a local + online version of git</p></li>
 <li><p>when created, run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://...</span></code> in the terminal with the “clone with HTTPS” path</p></li>
@@ -592,7 +626,7 @@ document.write(`
 </ul>
 </section>
 <section id="collaborating-with-git">
-<h3>Collaborating with <code class="docutils literal notranslate"><span class="pre">git</span></code><a class="headerlink" href="#collaborating-with-git" title="Permalink to this headline">#</a></h3>
+<h3>Collaborating with <code class="docutils literal notranslate"><span class="pre">git</span></code><a class="headerlink" href="#collaborating-with-git" title="Link to this heading">#</a></h3>
 <p><strong>Branches in git are the basis for collaboration.</strong></p>
 <ul class="simple">
 <li><p>Upstream repo (main Repo, the “holy” one the one you don’t want or can push to)</p></li>
@@ -613,7 +647,7 @@ document.write(`
 </ul>
 </section>
 <section id="git-cheatsheet">
-<h3><code class="docutils literal notranslate"><span class="pre">git</span></code> cheatsheet<a class="headerlink" href="#git-cheatsheet" title="Permalink to this headline">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">git</span></code> cheatsheet<a class="headerlink" href="#git-cheatsheet" title="Link to this heading">#</a></h3>
 <p>If you forget stuff you can come here to get a quick recap. These things should also be easy to google ;)</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">add</span></code></p></li>
@@ -632,12 +666,12 @@ document.write(`
 </section>
 </section>
 <section id="git-repository-from-scratch">
-<h2>git repository from scratch<a class="headerlink" href="#git-repository-from-scratch" title="Permalink to this headline">#</a></h2>
+<h2>git repository from scratch<a class="headerlink" href="#git-repository-from-scratch" title="Link to this heading">#</a></h2>
 <p>Initiate the repo in the folder of choice with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> to create a <code class="docutils literal notranslate"><span class="pre">.git</span></code> folder. Any folder with a <code class="docutils literal notranslate"><span class="pre">.git</span></code> folder in it is a git repository. Now all git commands can be used inside the folder.</p>
 <p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> shows all tracked (green) and untraked (red) files and the current branch. Files can be ignored in a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file but generally we don’t want untracked files, so either they should be staged by <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">filename</span></code> and commited <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-a</span> <span class="pre">-m</span> <span class="pre">&quot;meaningful</span> <span class="pre">message&quot;</span></code> or ignored in the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file.</p>
 </section>
 <section id="branches">
-<h2>Branches<a class="headerlink" href="#branches" title="Permalink to this headline">#</a></h2>
+<h2>Branches<a class="headerlink" href="#branches" title="Link to this heading">#</a></h2>
 <p>In fact, everything in Git is a Branch.</p>
 <p>Branches become important when working collaboratively on a project, however, they can usually be avoided on personal projects with no collaborators.
 Although branches can be used to keep the “development” version of the code from a “clean/working” state, this can be achieved without having multiple branches. A better way to achieve the same result is to <strong>use tags</strong> to mark the clean versions of the code.</p>
@@ -647,7 +681,7 @@ Although branches can be used to keep the “development” version of the code 
 <p>In the local git repository you can find a <code class="docutils literal notranslate"><span class="pre">.git</span></code> folder (hidden folder) where all the changes are stored.</p>
 </section>
 <section id="workflow-for-collaboration">
-<h2>Workflow for collaboration<a class="headerlink" href="#workflow-for-collaboration" title="Permalink to this headline">#</a></h2>
+<h2>Workflow for collaboration<a class="headerlink" href="#workflow-for-collaboration" title="Link to this heading">#</a></h2>
 <p>If you want to contribute to an existing project, <strong>DO NOT</strong> clone the “Holy repo”. Instead:</p>
 <ol class="arabic simple">
 <li><p><strong>Fork</strong> the repository. This will create a full copy under your own namespace. Note that this step might take a while: this is because the full repository is copied. This fork becomes your origin by cloning it.</p></li>
@@ -702,8 +736,10 @@ However, even as a maintainer, if you collaborate with other people on a project
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="../syllabus.html"
@@ -731,6 +767,7 @@ However, even as a maintainer, if you collaborate with other people on a project
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -770,7 +807,7 @@ However, even as a maintainer, if you collaborate with other people on a project
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -783,10 +820,14 @@ By Fabien Maussion
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
-    
+    <p class="last-updated">
+  Last updated on Aug 14, 2024.
+  <br/>
+</p>
   </div>
   
   <div class="footer-item">
@@ -798,13 +839,13 @@ By Fabien Maussion
 </a>
 These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
 <br>
-&copy; Copyright 2021-2022.
+&copy; Copyright 2021-2024.
 </p>
 
 </div>
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -813,8 +854,8 @@ These lecture notes and exercises are licensed under a <a href="https://creative
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
